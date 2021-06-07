@@ -23,10 +23,8 @@ while(cap.isOpened()):
     mask2=cv2.inRange(hsv, lower_red,upper_red)
     
     mask1=mask1+mask2
-    mask1=cv2.morphologyEx(mask1,cv2.MORPH_OPEN,
-                           np.ones((3,3),np.uint8),iterations=3)
-    mask1=cv2.morphologyEx(mask1,cv2.MORPH_DILATE,
-                           np.ones((3,3),np.uint8),iterations=3)
+    mask1=cv2.morphologyEx(mask1,cv2.MORPH_OPEN, np.ones((3,3),np.uint8),iterations=3)
+    mask1=cv2.morphologyEx(mask1,cv2.MORPH_DILATE, np.ones((3,3),np.uint8),iterations=3)
     
     mask2=cv2.bitwise_not(mask1)
     res1=cv2.bitwise_and(background,background,mask=mask1)
